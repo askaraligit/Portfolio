@@ -147,11 +147,11 @@ function Portfolio() {
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText("hello@askar.dev");
+      await navigator.clipboard.writeText("mamohamedaskarali@gmail.com");
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
-      window.location.href = "mailto:hello@askar.dev";
+      window.location.href = "mailto:mamohamedaskarali@gmail.com";
     }
   };
 
@@ -277,7 +277,7 @@ function Portfolio() {
         <RevealHeading first="Let's make" second="something useful." />
         <Reveal className="contact-copy" delay={0.1}><p>Tell me what you&apos;re building, where it feels stuck, and what a good outcome looks like.</p></Reveal>
         <Reveal className="contact-actions" delay={0.18}>
-          <a className="contact-email" href="mailto:hello@askar.dev"><RollingText>hello@askar.dev</RollingText><MoveRight size={28} /></a>
+          <a className="contact-email" href="mailto:mamohamedaskarali@gmail.com"><RollingText>mamohamedaskarali@gmail.com</RollingText><MoveRight size={28} /></a>
           <button className="copy-email" type="button" onClick={copyEmail} aria-live="polite">
             {copied ? <Check size={16} /> : <Copy size={16} />}{copied ? "Copied" : "Copy email"}
           </button>
@@ -287,7 +287,7 @@ function Portfolio() {
           <span>© {new Date().getFullYear()} Askar</span>
           <span>Designed & built with care</span>
           <div>
-            <a href="mailto:hello@askar.dev"><Mail size={15} /><RollingText>Email</RollingText></a>
+            <a href="mailto:mamohamedaskarali@gmail.com"><Mail size={15} /><RollingText>Email</RollingText></a>
             <a href="#top"><RollingText>Back to top</RollingText><ArrowUpRight size={15} /></a>
           </div>
         </footer>

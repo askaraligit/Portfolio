@@ -128,7 +128,7 @@ export default function SiteHeader() {
       data-menu-open={menuOpen}
     >
       <a className="brand" href="#top" onClick={closeMenu} aria-label="Askar, back to top">
-        ASKR<span>®</span>
+        ASKAR<span>®</span>
       </a>
 
       <nav className={`desktop-nav ${styles.navigation}`} aria-label="Primary navigation">
@@ -211,7 +211,7 @@ export default function SiteHeader() {
             ))}
             <div className="mobile-nav-meta">
               <span>India · Worldwide</span>
-              <a href="mailto:hello@askar.dev">hello@askar.dev</a>
+              <a href="mailto:mamohamedaskarali@gmail.com">mamohamedaskarali@gmail.com</a>
             </div>
           </motion.nav>
         )}
