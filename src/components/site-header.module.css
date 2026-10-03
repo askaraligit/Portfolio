@@ -1,0 +1,105 @@
+.navigation:global(.desktop-nav) {
+  gap: 4px;
+}
+
+.navigation:global(.desktop-nav) .link {
+  --section-progress: 0;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  padding: 12px 14px;
+}
+
+.navigation:global(.desktop-nav) .link::after {
+  content: none;
+}
+
+.navigation .link::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: color-mix(in srgb, var(--ink) 9%, transparent);
+  transform: scaleX(var(--section-progress));
+  transform-origin: left;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.navigation .link[aria-current="location"]::before {
+  background: color-mix(in srgb, var(--ink) 15%, transparent);
+  opacity: 1;
+}
+
+.index {
+  color: var(--ink-soft);
+  font-size: 7px;
+  letter-spacing: 0;
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+  .navigation:global(.desktop-nav) .link {
+    gap: 8px;
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .header:global(.site-header)[data-menu-open="true"] {
+    color: #f3efe7;
+    background: transparent;
+    border-color: transparent;
+    backdrop-filter: none;
+  }
+
+  .header[data-menu-open="true"] :global(.theme-toggle-track) {
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .header[data-menu-open="true"] :global(.theme-toggle-thumb) {
+    background: #f3efe7;
+  }
+
+  .mobile:global(.mobile-nav) {
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mobile:global(.mobile-nav) > .mobileLink {
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding-block: 6px;
+  }
+
+  .mobile .mobileLink[aria-current="location"] small {
+    color: #f3efe7;
+  }
+
+  .mobile:global(.mobile-nav) > .mobileLink .mobileText {
+    line-height: 1.2;
+  }
+
+  .mobile:global(.mobile-nav) > .mobileLink .mobileText span {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
+
+  .mobile :global(.mobile-nav-meta) {
+    gap: 16px;
+    padding-top: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile,
+  .mobileLink > * {
+    clip-path: none !important;
+    transform: none !important;
+  }
+}

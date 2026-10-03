@@ -1,4 +1,5 @@
 import { DM_Mono, DM_Sans, Playfair_Display } from "next/font/google";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const sans = DM_Sans({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
