@@ -19,7 +19,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
+      <head>
+        {/* Resolve the saved theme before CSS starts the entrance animation. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{document.documentElement.dataset.theme=localStorage.getItem("askar-theme")==="dark"?"dark":"light"}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className={`${sans.variable} ${mono.variable} ${serif.variable}`}>{children}</body>
     </html>
   );

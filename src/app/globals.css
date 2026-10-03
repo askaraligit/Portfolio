@@ -162,7 +162,7 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 18px); }
   background: var(--ink);
   transition: transform 0.3s var(--ease);
 }
-.theme-toggle-thumb[data-dark="true"] { transform: translateX(28px); }
+:root[data-theme="dark"] .theme-toggle-thumb { transform: translateX(28px); }
 .menu-toggle { display: none; width: 42px; height: 42px; padding: 0; place-items: center; }
 .mobile-nav { display: none; }
 
