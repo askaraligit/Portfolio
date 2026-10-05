@@ -138,20 +138,19 @@ export function ScrollReading({ text }) {
 }
 
 export function ScrollMarquee({ items }) {
-  const ref = useRef(null);
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
-
   return (
-    <section className="capability-strip" aria-label="Core capabilities" ref={ref}>
-      <motion.div className="marquee-track scroll-marquee" style={reduceMotion ? undefined : { x }}>
+    <section className="capability-strip" aria-label="Core capabilities">
+      <div className="marquee-track scroll-marquee">
         {[0, 1].map((copy) => (
           <div className="marquee-group" key={copy} aria-hidden={copy === 1 ? "true" : undefined}>
-            {items.map((item) => <span key={item}>{item}<i aria-hidden="true">✦</i></span>)}
+            {[0, 1].map((repeat) => items.map((item) => (
+              <span key={`${repeat}-${item}`} aria-hidden={repeat === 1 ? "true" : undefined}>
+                {item}<i aria-hidden="true">✦</i>
+              </span>
+            )))}
           </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

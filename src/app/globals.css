@@ -320,8 +320,17 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 18px); }
   white-space: nowrap;
 }
 .marquee-track { width: max-content; }
-.scroll-marquee { display: flex; }
-.marquee-group { display: flex; flex-shrink: 0; }
+.scroll-marquee {
+  display: flex;
+  animation: capability-marquee 40s linear infinite;
+  will-change: transform;
+}
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100vw;
+  justify-content: space-around;
+}
 .marquee-track span {
   margin-right: 28px;
   font: 500 10px var(--font-mono), monospace;
@@ -329,6 +338,11 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 18px); }
   text-transform: uppercase;
 }
 .marquee-track i { margin-left: 28px; color: var(--lime); font-style: normal; }
+/* Identical halves keep the reset aligned with the next copy. */
+@keyframes capability-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
 /* Shared section composition */
 .work-section, .about-section, .process-section { position: relative; z-index: 1; padding: var(--section-pad) var(--page-pad); }
@@ -852,9 +866,9 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 18px); }
   .footer-signature > span { transform: none !important; }
   .hero-content { opacity: 1 !important; }
   .reading-word { color: #f3efe7 !important; }
-  .scroll-marquee { width: 100%; padding: 0 var(--page-pad); transform: none !important; }
+  .scroll-marquee { width: 100%; padding: 0 var(--page-pad); animation: none; transform: none !important; will-change: auto; }
   .marquee-group { width: 100%; min-width: 0; flex: 1 1 100%; flex-wrap: wrap; justify-content: center; gap: 16px 0; }
-  .marquee-group[aria-hidden="true"] { display: none; }
+  .marquee-group[aria-hidden="true"], .marquee-group > [aria-hidden="true"] { display: none; }
   .about-heading { position: relative; top: auto; }
   .process-row-progress { transform: none !important; }
   .process-row > i > span { transform: none !important; }
@@ -863,7 +877,6 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 18px); }
 
 @media (scripting: none) {
   [data-reveal] { opacity: 1 !important; transform: none !important; }
-  .scroll-marquee { transform: none !important; }
   .word-band { clip-path: none !important; }
   .word-band span { transform: none !important; will-change: auto; }
 }
