@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import RollingText from "./rolling-text";
 import ThemeToggle from "./theme-toggle";
@@ -18,6 +18,8 @@ export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
+  const [savingResume, setSavingResume] = useState(false);
+  const [resumeError, setResumeError] = useState("");
   const headerRef = useRef(null);
   const menuToggleRef = useRef(null);
   const desktopLinksRef = useRef([]);
@@ -121,6 +123,48 @@ export default function SiteHeader() {
     setMenuOpen(false);
   };
 
+  const downloadResume = async (event) => {
+    closeMenu();
+    setResumeError("");
+
+    if (savingResume) {
+      event.preventDefault();
+      return;
+    }
+
+    // Keep the native download on browsers without a save-location picker.
+    if (typeof window.showSaveFilePicker !== "function") return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    event.preventDefault();
+    const { href, download } = event.currentTarget;
+    setSavingResume(true);
+    let fileHandle;
+    let writable;
+
+    try {
+      // Open immediately while the click still grants user activation.
+      fileHandle = await window.showSaveFilePicker({
+        suggestedName: download,
+        types: [{ description: "PDF document", accept: { "application/pdf": [".pdf"] } }],
+      });
+      const response = await fetch(href);
+      if (!response.ok) throw new Error("Unable to load the resume.");
+
+      const pdf = await response.blob();
+      writable = await fileHandle.createWritable();
+      await writable.write(pdf);
+      await writable.close();
+    } catch (error) {
+      if (writable) await writable.abort().catch(() => {});
+      if (fileHandle || error.name !== "AbortError") {
+        setResumeError("Unable to save the resume. Please try again.");
+      }
+    } finally {
+      setSavingResume(false);
+    }
+  };
+
   return (
     <header
       ref={headerRef}
@@ -147,6 +191,19 @@ export default function SiteHeader() {
       </nav>
 
       <div className="header-actions">
+        <a
+          className={styles.resumeLink}
+          href="/Askar-CV.pdf"
+          download="Askar-CV.pdf"
+          aria-label="Download Askar's Resume (PDF)"
+          title="Download Resume (PDF)"
+          aria-busy={savingResume}
+          aria-disabled={savingResume}
+          onClick={downloadResume}
+        >
+          <span>Resume</span>
+          <Download size="1em" aria-hidden="true" />
+        </a>
         <ThemeToggle />
         <button
           ref={menuToggleRef}
@@ -160,6 +217,8 @@ export default function SiteHeader() {
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
+
+      {resumeError && <p className={styles.resumeError} role="alert">{resumeError}</p>}
 
       <AnimatePresence>
         {menuOpen && (

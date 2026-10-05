@@ -40,6 +40,42 @@
   letter-spacing: 0;
 }
 
+.resumeLink {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  height: 44px;
+  padding-inline: 8px;
+  font: 500 10px var(--font-mono), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.resumeLink:hover,
+.resumeLink:focus-visible {
+  color: var(--coral);
+}
+
+.resumeError {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: var(--page-pad);
+  max-width: min(280px, calc(100vw - 44px));
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 @media (min-width: 761px) and (max-width: 1000px) {
   .navigation:global(.desktop-nav) .link {
     gap: 8px;
@@ -97,6 +133,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .resumeLink {
+    transition: none;
+  }
+
   .mobile,
   .mobileLink > * {
     clip-path: none !important;
