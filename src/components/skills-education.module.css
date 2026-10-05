@@ -1,0 +1,297 @@
+.skillsSection,
+.educationSection {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-pad) var(--page-pad);
+  color: var(--ink);
+}
+
+.skillsSection {
+  background: var(--paper);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.65fr);
+  align-items: end;
+  gap: clamp(32px, 6vw, 100px);
+  margin-bottom: clamp(48px, 6vw, 88px);
+}
+
+.heading :global(.eyebrow) {
+  margin-bottom: 36px;
+  color: var(--ink-soft);
+}
+
+.heading h2 {
+  margin: 0;
+  font-size: clamp(48px, 6.3vw, 104px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
+
+.heading h2 em {
+  color: color-mix(in srgb, var(--coral) 80%, var(--ink));
+  font-family: var(--font-serif), serif;
+  font-weight: 500;
+}
+
+.summary p {
+  max-width: 340px;
+  margin: 0;
+  padding-bottom: 6px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.skillGroups {
+  border-top: 1px solid var(--line-strong);
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 2fr);
+  gap: 36px;
+  align-items: start;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 6px;
+}
+
+.index {
+  margin-right: 10px;
+  color: var(--ink-soft);
+  font: 500 9px var(--font-mono), monospace;
+}
+
+.groupTitle svg,
+.languageTitle svg {
+  flex-shrink: 0;
+  color: var(--ink-soft);
+}
+
+.groupTitle h3 {
+  margin: 0;
+  font-size: clamp(21px, 2vw, 29px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skillList li {
+  max-width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  font: 400 12px/1.5 var(--font-mono), monospace;
+}
+
+.languages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.languageTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.languageTitle h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.languages ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.languages li span {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.educationSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(40px, 7vw, 112px);
+  border-block: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.educationSection .heading h2 {
+  font-size: clamp(46px, 5.5vw, 88px);
+}
+
+.educationRecord {
+  min-width: 0;
+  padding: clamp(24px, 3vw, 48px);
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+}
+
+.educationTopline {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+  color: var(--ink-soft);
+}
+
+.degreeIcon {
+  display: grid;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+}
+
+.educationRecord h3 {
+  max-width: 440px;
+  margin: 0 0 24px;
+  font-size: clamp(27px, 3vw, 44px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.05em;
+}
+
+.institution {
+  max-width: 350px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.location {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.educationDetails {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  margin: 36px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.educationDetails dt {
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  font: 500 9px var(--font-mono), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.educationDetails dd {
+  margin: 0;
+  font-size: clamp(24px, 2.7vw, 36px);
+  letter-spacing: -0.045em;
+}
+
+@media (max-width: 900px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .summary p {
+    max-width: 480px;
+  }
+
+  .skillRow {
+    grid-template-columns: minmax(200px, 0.8fr) minmax(0, 1.2fr);
+    gap: 24px;
+  }
+
+  .educationSection {
+    grid-template-columns: 1fr;
+  }
+
+  .educationRecord {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading h2,
+  .educationSection .heading h2 {
+    font-size: clamp(40px, 10.7vw, 64px);
+  }
+
+  .heading :global(.eyebrow) {
+    margin-bottom: 28px;
+  }
+
+  .skillRow {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-block: 26px;
+  }
+
+  .groupTitle {
+    padding-top: 0;
+  }
+
+  .skillList {
+    gap: 8px;
+  }
+
+  .skillList li {
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+
+  .languages {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .languages ul {
+    gap: 12px 20px;
+  }
+
+  .educationTopline {
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .educationDetails {
+    gap: 16px;
+  }
+}

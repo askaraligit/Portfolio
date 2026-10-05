@@ -696,28 +696,32 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 18px); }
   .process-note { display: none; }
 }
 
-@media (max-width: 760px) {
-  :root { --page-pad: 6vw; --section-pad: 92px; --header-height: 66px; }
-  body.menu-is-open { overflow: hidden; }
-  .cursor-glow, .desktop-nav { display: none; }
+@media (max-width: 1100px) {
+  .desktop-nav { display: none; }
   .site-header { grid-template-columns: 1fr auto; }
-  .site-header.is-scrolled { height: 60px; }
   .menu-toggle { display: grid; }
   .mobile-nav {
     position: fixed;
     z-index: -1;
     inset: 0;
-    padding: calc(var(--header-height) + 55px) var(--page-pad) 30px;
+    padding: calc(var(--header-height) + 28px) var(--page-pad) 30px;
     display: flex;
     flex-direction: column;
     color: #f3efe7;
     background: #171817;
   }
-  .mobile-nav > .eyebrow { margin-bottom: 34px; color: #898780; }
-  .mobile-nav > a { min-height: 74px; display: grid; grid-template-columns: 40px 1fr; align-items: center; border-bottom: 1px solid rgba(255,255,255,.2); }
+  .mobile-nav > .eyebrow { margin-bottom: 24px; color: #898780; }
+  .mobile-nav > a { min-height: 64px; display: grid; grid-template-columns: 40px 1fr; align-items: center; border-bottom: 1px solid rgba(255,255,255,.2); }
   .mobile-nav > a small { color: #85837e; font: 500 8px var(--font-mono), monospace; }
-  .mobile-nav > a span { font-size: clamp(37px, 12vw, 64px); line-height: 1; letter-spacing: -.06em; }
-  .mobile-nav-meta { margin-top: auto; display: flex; justify-content: space-between; color: #aaa79f; font: 500 8px var(--font-mono), monospace; text-transform: uppercase; }
+  .mobile-nav > a span { font-size: clamp(34px, 7dvh, 60px); line-height: 1; letter-spacing: -.06em; }
+  .mobile-nav-meta { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; color: #aaa79f; font: 500 8px var(--font-mono), monospace; text-transform: uppercase; }
+}
+
+@media (max-width: 760px) {
+  :root { --page-pad: 6vw; --section-pad: 92px; --header-height: 66px; }
+  body.menu-is-open { overflow: hidden; }
+  .cursor-glow { display: none; }
+  .site-header.is-scrolled { height: 60px; }
 
   .hero { min-height: 100svh; padding-top: calc(var(--header-height) + 45px); }
   .hero::before { background-size: 25vw 25vw; }

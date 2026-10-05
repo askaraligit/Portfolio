@@ -20,6 +20,7 @@ import {
 import { useRef, useState } from "react";
 import AboutTransition from "./about-transition";
 import CustomCursor from "./custom-cursor";
+import ExperienceSection from "./experience-section";
 import HeroFeatured from "./hero-featured";
 import PageEntrance from "./page-entrance";
 import ProjectShowcase from "./project-showcase";
@@ -27,12 +28,13 @@ import RollingText from "./rolling-text";
 import SmoothScroll from "./smooth-scroll";
 import { FooterSignature, HeroTitle, ProcessStep, Reveal, RevealHeading, ScrollMarquee, ScrollReading } from "./scroll-scenes";
 import SiteHeader from "./site-header";
+import { EducationSection, SkillsSection } from "./skills-education";
 
 const projects = [
   {
     number: "01",
     year: "2025",
-    name: "Task Manager",
+    name: "Task Management Platform",
     type: "Productivity · Web application",
     visual: "tasks",
     accent: "coral",
@@ -44,7 +46,7 @@ const projects = [
   {
     number: "02",
     year: "2025",
-    name: "Low-Code ERP",
+    name: "Configurable ERP Platform",
     type: "Enterprise platform · Full stack",
     visual: "builder",
     accent: "lime",
@@ -56,19 +58,19 @@ const projects = [
   {
     number: "03",
     year: "2025",
-    name: "Multi-Org ERP & Tally",
+    name: "Business Management Platform",
     type: "Business systems · Full stack",
     visual: "finance",
     accent: "sky",
     description:
-      "A multi-organization system connecting sales, purchasing, stock, invoicing, ledgers, and two-way Tally synchronization.",
+      "A multi-organization system connecting sales, purchasing, stock, invoicing, ledgers, and two-way accounting synchronization.",
     outcome: "One source of operational truth",
-    features: ["Tally sync", "Inventory", "Invoicing", "Reporting"],
+    features: ["Accounting sync", "Inventory", "Invoicing", "Reporting"],
   },
   {
     number: "04",
     year: "2024",
-    name: "Digi Facility",
+    name: "Facility Management System",
     type: "CAFM · Operations",
     visual: "facility",
     accent: "violet",
@@ -80,7 +82,7 @@ const projects = [
   {
     number: "05",
     year: "2024",
-    name: "Digicognit Website",
+    name: "Corporate Website",
     type: "Corporate platform · Next.js",
     visual: "website",
     accent: "amber",
@@ -255,11 +257,11 @@ function Portfolio() {
             </Reveal>
           ))}
         </div>
-
-        <div className="tool-list" aria-label="Tools and skills">
-          {tools.map((tool) => <span key={tool}>{tool}</span>)}
-        </div>
       </section>
+
+      <ExperienceSection />
+      <SkillsSection />
+      <EducationSection />
 
       <section className="process-section" id="process">
         <div className="section-intro process-intro">

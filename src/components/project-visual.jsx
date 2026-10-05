@@ -96,8 +96,8 @@ function WebsiteVisual() {
     <div className="browser-stack">
       <div className="browser-shadow" />
       <div className="visual-window website-window">
-        <MiniHeader title="digicognit.com" />
-        <div className="website-nav"><b>DIGICOGNIT</b><span>Products&nbsp;&nbsp; Solutions&nbsp;&nbsp; Company</span><i>Book a demo</i></div>
+        <MiniHeader title="Corporate website / Home" />
+        <div className="website-nav"><b>COMPANY</b><span>Products&nbsp;&nbsp; Solutions&nbsp;&nbsp; Company</span><i>Book a demo</i></div>
         <div className="website-hero">
           <small>Enterprise technology, made human</small>
           <b>Build better.<br />Move faster.</b>

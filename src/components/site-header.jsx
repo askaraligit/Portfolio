@@ -10,6 +10,9 @@ import styles from "./site-header.module.css";
 const links = [
   { href: "#work", label: "Work" },
   { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#education", label: "Education" },
   { href: "#process", label: "Process" },
   { href: "#contact", label: "Contact" },
 ];
@@ -97,7 +100,7 @@ export default function SiteHeader() {
         }
       }
     };
-    const desktop = window.matchMedia("(min-width: 761px)");
+    const desktop = window.matchMedia("(min-width: 1101px)");
     const onViewportChange = () => {
       if (desktop.matches) setMenuOpen(false);
     };
