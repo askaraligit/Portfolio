@@ -4,13 +4,13 @@ import { Moon, Sun } from "lucide-react";
 import { useLayoutEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useLayoutEffect(() => {
     // Restore before paint if React's development remount resets the root attribute.
     try {
       const saved = window.localStorage.getItem("askar-theme");
-      document.documentElement.dataset.theme = saved === "dark" ? "dark" : "light";
+      document.documentElement.dataset.theme = saved === "light" ? "light" : "dark";
     } catch {
       // Keep the current theme when browser storage is unavailable.
     }

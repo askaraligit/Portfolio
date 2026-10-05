@@ -1,6 +1,8 @@
 "use client";
 
 import { Braces, Database, GitBranch, GraduationCap, Languages, Server } from "lucide-react";
+import { SkillLogo } from "./skill-logo";
+import AnimatedWord from "./animated-word";
 import { Reveal, RevealHeading } from "./scroll-scenes";
 import styles from "./skills-education.module.css";
 
@@ -30,6 +32,7 @@ const skillGroups = [
 export function SkillsSection() {
   return (
     <section className={styles.skillsSection} id="skills" aria-label="Skills">
+      <AnimatedWord word="SKILLS" className="word-band-section word-band-skills" />
       <div className={styles.intro}>
         <div className={styles.heading}>
           <Reveal><p className="eyebrow">Skills / Technical toolkit</p></Reveal>
@@ -50,7 +53,12 @@ export function SkillsSection() {
                 <h3>{title}</h3>
               </div>
               <ul className={styles.skillList} aria-label={`${title} skills`}>
-                {skills.map((skill) => <li key={skill}>{skill}</li>)}
+                {skills.map((skill) => (
+                  <li key={skill}>
+                    <SkillLogo skill={skill} />
+                    <span>{skill}</span>
+                  </li>
+                ))}
               </ul>
             </article>
           </Reveal>

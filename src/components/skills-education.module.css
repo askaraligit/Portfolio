@@ -95,12 +95,20 @@
 }
 
 .skillList li {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   max-width: 100%;
   padding: 10px 14px;
   border: 1px solid var(--line);
   border-radius: 3px;
   background: var(--panel);
   font: 400 12px/1.5 var(--font-mono), monospace;
+}
+
+.skillList li > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .languages {
